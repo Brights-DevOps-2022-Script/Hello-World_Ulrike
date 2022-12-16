@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'echo building a house or a chair.'
-                sh "echo gansefusse test ... "
+                sh "echo a mouse. "
             }
         }
         stage('test') {

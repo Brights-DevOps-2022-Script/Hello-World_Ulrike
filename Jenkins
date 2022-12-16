@@ -3,18 +3,18 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'echo building ...'
+                sh 'echo building a house or a chair.'
                 sh "echo gansefusse test ... "
             }
         }
         stage('test') {
             steps {
-                sh 'echo testing ...'
+                sh 'echo testing the pronames of the trees of the fantastic four.'
             }
         }
         stage('deploy') {
             steps {
-                sh 'echo deploying ...'
+                sh 'echo deploying this wonderfull meaningfull pipe.'
             }
         }
     }

@@ -5,6 +5,7 @@ pipeline {
             steps {
                 sh 'echo building a house or a chair.'
                 sh "echo a mouse. "
+                sh "cat content.log"
             }
         }
         stage('test') {

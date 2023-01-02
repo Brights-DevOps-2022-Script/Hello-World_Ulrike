@@ -1,11 +1,13 @@
 pipeline {
-    agent any
+    agent {
+        Docker {
+                image 'cytopia/ansible'
+            }
+        }
     stages {
         stage('build') {
             steps {
-                sh 'echo building a house or a chair.'
-                sh "echo a mouse. "
-                sh "cat content.log"
+                sh "ansible --version"
             }
         }
         stage('test') {

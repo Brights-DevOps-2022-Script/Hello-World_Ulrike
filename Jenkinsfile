@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        Docker{
+        docker {
                 image 'cytopia/ansible'
             }
         }

@@ -4,7 +4,6 @@ pipeline {
                 image 'cytopia/ansible'
             }
         }
-
     }
     stages {
         stage('Create a file with playbook') {

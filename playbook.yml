@@ -2,6 +2,7 @@
     hosts: all
     remote_user: snowman
     become: true
+    validate_certs: true
 
     tasks:
       - name: creating a empty file

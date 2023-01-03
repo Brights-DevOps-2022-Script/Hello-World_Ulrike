@@ -1,4 +1,4 @@
-- hosts: 20.218.111.156 
+- hosts: all
   tasks:
   - name: Create multiple files
     file: 

@@ -1,9 +1,11 @@
-  - name: vm_frosty
+  - name: working on vm frosty
     hosts: all
-    user: snowman
+    remote_user: snowman
     become: true
+
     tasks:
       - name: creating a empty file
         file:
           path: /
           state: touch
+          name: holladiewaldfee

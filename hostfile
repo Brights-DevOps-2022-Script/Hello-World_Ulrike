@@ -1,2 +1,2 @@
 [vm]
-20.218.111.156
+VM ansible_ssh_host=20.218.111.156 ansible_ssh_port=22 ansible_user=snowman

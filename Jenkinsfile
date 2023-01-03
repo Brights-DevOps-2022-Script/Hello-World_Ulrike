@@ -4,12 +4,11 @@ pipeline {
                 image 'cytopia/ansible'
             }
         }
+        environment {
+            ANSIBLE_KEY = credentials('vm_frosty')
     }
     stages {
-        stage('Create a file with playbook') {
-            environment {
-                ANSIBLE_KEY = credentials('vm_frosty')
-            }
+        stage('build') {
             steps {
                 sh "ansible --version"
                 sh 'ansible-playbook -i hostfile --private-key=$ANSIBLE_KEY playbook.yml'
@@ -20,7 +19,7 @@ pipeline {
                 sh 'echo We did it!.'
             }
         }
-        stage('deploy') {                                            
+        stage('deploy') {
             steps {
                 sh 'echo We are awesome!'
             }

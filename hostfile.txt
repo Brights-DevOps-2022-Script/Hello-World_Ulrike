@@ -1,0 +1,6 @@
+- name: My playbook
+  hosts: "{{ host_file }}"
+  vars:
+    host_file: /path/to/host/file
+  tasks:
+    # tasks go here

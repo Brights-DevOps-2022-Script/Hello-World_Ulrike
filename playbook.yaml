@@ -1,4 +1,4 @@
-  - name: vm
+  - name: vm_frosty
     hosts: all
     user: snowman
     become: true

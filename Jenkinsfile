@@ -11,7 +11,7 @@ pipeline {
         stage('build') {
             steps {
                 sh "ansible --version"
-                sh 'ansible-playbook -i --private-key=$ANSIBLE_KEY playbook.yml .txt'
+                sh 'ansible-playbook -i hostfile --private-key=$ANSIBLE_KEY playbook.yml'
             }
         }
         stage('test') {

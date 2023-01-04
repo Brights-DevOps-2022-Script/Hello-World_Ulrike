@@ -1,12 +1,8 @@
   - name: working on vm frosty
-    hosts: all
-    remote_user: snowman
-    become: true
-    validate_certs: true
-
+    hosts: vm # kommt aus dem hostfile, da hab ich das benannt
     tasks:
-      - name: creating a empty file
+      - name: Ulli creating an empty file
         file:
-          path: /
+          path: /home/snowman/Ulli_created_by_ansible.txt #nicht root, weil ich kein admin bin, also auf meine user-ebene
           state: touch
-          name: holladiewaldfee
+          owner: snowman #braucht man nicht

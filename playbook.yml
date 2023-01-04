@@ -6,3 +6,4 @@
           path: /home/snowman/Ulli_created_by_ansible.txt #nicht root, weil ich kein admin bin, also auf meine user-ebene
           state: touch
           owner: snowman #braucht man nicht
+

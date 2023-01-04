@@ -15,16 +15,6 @@ pipeline {
                 sh 'apk add --update --no-cache openssh sshpass'
                 sh 'ansible --version'
                 sh "ansible-playbook --version"
-                sh "ansible-playbook -vvv -i hostfile playbook.yml -e ansible_ssh_pass=$ANSIBLE_KEY_PSW" ///-vvv debug mode, detaillierte Fehlermeldungen //Hier hole ich die Variable aus dem Environment, hab ich da angelegt.
-            }
-        }
-
-        stage('install docker') {
-            steps {
-                sh 'apk update'
-                sh 'apk add --update --no-cache openssh sshpass'
-                sh 'ansible --version'
-                sh "ansible-playbook --version"
                 sh "ansible-playbook -vvv -i hostfile playbook_Dockerinstall.yml -e ansible_ssh_pass=$ANSIBLE_KEY_PSW" ///-vvv debug mode, detaillierte Fehlermeldungen //Hier hole ich die Variable aus dem Environment, hab ich da angelegt.
             }
         }

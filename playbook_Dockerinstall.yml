@@ -1,5 +1,6 @@
 - name: working on vm frosty
   hosts: vm
+  become: true
   tasks: 
     - name: Install the packages dependencies
       ansible.builtin.apt:

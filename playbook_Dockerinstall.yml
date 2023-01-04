@@ -1,7 +1,7 @@
 - name: working on vm frosty
   hosts: vm
   tasks: 
-    name: Install the packages dependencies
+    - name: Install the packages dependencies
     ansible.builtin.apt:
       name: 
         - ca-certificates

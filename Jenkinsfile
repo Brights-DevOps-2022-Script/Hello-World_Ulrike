@@ -9,7 +9,7 @@ pipeline {
             ANSIBLE_HOST_KEY_CHECKING = 'False' //damit der die Certificates nicht checkt und kein ERR "unreachable" ausgeworfen wird
     }
     stages {
-        stage('create file') {
+        stage('Docker install') {
             steps {
                 sh 'apk update'
                 sh 'apk add --update --no-cache openssh sshpass'

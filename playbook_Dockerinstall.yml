@@ -68,4 +68,6 @@
         name: Ulli
         comment: Ullithekla
         uid: 1042
-        group: admin
+        group: docker
+
+    

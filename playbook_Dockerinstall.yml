@@ -52,8 +52,13 @@
           - docker-compose-plugin
         state: latest
 
-    - name: check if dependencies are installed
+    - name: check if docker components are installed
       ansible.builtin.shell: dpkg -l 'docker-ce' && dpkg -l 'docker-ce-cli' &&  dpkg -l 'containerd.io' && dpkg -l 'docker-compose-plugin'
       register: dockercomponents
       failed_when: dockercomponents.stderr != ''
       changed_when: false
+
+    - name: Is docker running
+      ansible.builtin.service:
+        name: docker
+        state: started

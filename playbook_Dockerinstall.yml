@@ -63,10 +63,10 @@
         name: docker
         state: started
 
-    - name: Add the user 'Ulli' with a specific uid and a primary group of 'admin'
+    - name: Add the user "snowman" to docker group
       ansible.builtin.user:
-        name: Ulli
-        comment: Ullithekla
+        name: snowman
+        comment: user of the vm
         uid: 1000
         group: docker
 

@@ -17,8 +17,8 @@
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
         keyring: /etc/apt/keyrings
-        
+
     - name: Add specified repository into sources list
       ansible.builtin.apt_repository:
-      repo: deb https://download.docker.com/linux/ubuntu focal state
-      state: present
+        repo: deb https://download.docker.com/linux/ubuntu focal state
+        state: present

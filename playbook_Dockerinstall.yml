@@ -28,8 +28,20 @@
         repo: deb https://download.docker.com/linux/ubuntu focal state
         state: present
 
-    - name: test docker rep susseccfull
-      ansible.builtin.shell: sudo apt-cache policy | grep docker
+    - name: check added docker repository
+      ansible.builtin.shell: cat "/etc/apt/sources.list.d/Docker.list"
+      register: dockerrepo
+      failed_when: dockerrepo.stderr != ''
+      changed_when: false
     
     - name: apt-get update
       ansible.builtin.shell: sudo apt-get update
+    
+    - name: Install the package "docker"
+      ansible.builtin.apt:
+        name: 
+          - docker-ce
+          - docker-ce-cli 
+          - containerd.io 
+          - docker-compose-plugin
+        state: latest

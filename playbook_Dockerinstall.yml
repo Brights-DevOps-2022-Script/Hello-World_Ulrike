@@ -30,3 +30,6 @@
 
     - name: test docker rep susseccfull
       ansible.builtin.shell: sudo apt-cache policy | grep docker
+    
+    - name: apt-get update
+      ansible.builtin.shell: sudo apt-get update

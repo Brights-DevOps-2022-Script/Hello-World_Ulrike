@@ -67,7 +67,7 @@
       ansible.builtin.user:
         name: Ulli
         comment: Ullithekla
-        uid: 1042
+        uid: 1000
         group: docker
 
     

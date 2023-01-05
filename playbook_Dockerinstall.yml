@@ -12,6 +12,12 @@
         state: latest
         update_cache: true
 
+    - name: check if dependencies are installed
+      ansible.builtin.shell: dpkg -l 'ca-certificates' && dpkg -l 'curl' &&  dpkg -l 'gnupg' && dpkg -l 'lsb-release'
+      register: certificates
+      failed_when: certificates.stderr != ''
+      changed_when: false
+
     - name: add keyrings directory
       ansible.builtin.file:
         path: /etc/apt/keyrings
@@ -45,3 +51,9 @@
           - containerd.io 
           - docker-compose-plugin
         state: latest
+
+    - name: check if dependencies are installed
+      ansible.builtin.shell: dpkg -l 'docker-ce' && dpkg -l 'docker-ce-cli' &&  dpkg -l 'containerd.io' && dpkg -l 'docker-compose-plugin'
+      register: dockercomponents
+      failed_when: dockercomponents.stderr != ''
+      changed_when: false

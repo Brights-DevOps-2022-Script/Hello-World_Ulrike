@@ -70,4 +70,9 @@
         uid: 1000
         group: docker
 
+    - name: Create a data container
+      community.docker.docker_container:
+        name: hello-world
+        image: hello-world
+
     

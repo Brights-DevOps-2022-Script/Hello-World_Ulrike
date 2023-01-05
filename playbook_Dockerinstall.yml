@@ -12,6 +12,11 @@
         state: latest
         update_cache: true
 
+    - name: add keyrings directory
+      ansible.builtin.file:
+        path: /etc/apt/keyrings
+        state: directory 
+
     - name: add docker apt key
       ansible.builtin.apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg

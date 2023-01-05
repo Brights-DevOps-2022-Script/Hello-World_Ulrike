@@ -29,6 +29,11 @@
         state: present
         keyring: /etc/apt/keyrings/docker.gpg
 
+    - name: check if gpg key is installed
+      ansible.builtin.shell: apt-key adv --list-public-keys --with-fingerprint --with-colons | grep docker
+      register: dockergpg
+      changed_when: false
+
     - name: Add specified repository into sources list
       ansible.builtin.apt_repository:
         repo: deb https://download.docker.com/linux/ubuntu focal state
@@ -51,6 +56,7 @@
           - containerd.io 
           - docker-compose-plugin
         state: latest
+        # update_cache: true ist das äqivalent zu apt-get update 
 
     - name: check if docker components are installed
       ansible.builtin.shell: dpkg -l 'docker-ce' && dpkg -l 'docker-ce-cli' &&  dpkg -l 'containerd.io' && dpkg -l 'docker-compose-plugin'
@@ -70,9 +76,19 @@
         uid: 1000
         group: docker
 
-    - name: Create a data container
+    - name: check if user is added to docker group
+      ansible.builtin.shell: id -nG snowman | grep -o docker
+      register: dockeruser
+      failed_when: dockeruser.stderr != ''
+      changed_when: false
+
+    - name: run Hello-world container
       community.docker.docker_container:
         name: hello-world_Ulli
         image: hello-world
 
-    
+    - name: check if hello-world container is running
+      ansible.builtin.shell: docker ps | grep hello-world
+      register: hello
+      failed_when: hello.stderr != ''
+      changed_when: false

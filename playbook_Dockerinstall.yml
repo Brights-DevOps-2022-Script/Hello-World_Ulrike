@@ -15,4 +15,4 @@
     - name: add docker apt key
       ansible.builtin.apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
-        state: latest
+        state: present

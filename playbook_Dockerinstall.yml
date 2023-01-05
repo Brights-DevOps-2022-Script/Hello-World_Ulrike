@@ -16,4 +16,4 @@
       ansible.builtin.apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
-        keyring: /etc/apt/keyrings/docker.gpg
+        keyring: /etc/apt/keyrings

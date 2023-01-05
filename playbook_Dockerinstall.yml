@@ -62,3 +62,10 @@
       ansible.builtin.service:
         name: docker
         state: started
+
+    - name: Add the user 'Ulli' with a specific uid and a primary group of 'admin'
+  ansible.builtin.user:
+    name: Ulli
+    comment: Ullithekla
+    uid: 1042
+    group: admin

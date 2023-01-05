@@ -21,7 +21,7 @@
       ansible.builtin.apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
-        keyring: /etc/apt/keyrings
+        keyring: /etc/apt/keyrings/docker.gpg
 
     - name: Add specified repository into sources list
       ansible.builtin.apt_repository:

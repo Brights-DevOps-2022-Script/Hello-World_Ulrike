@@ -72,7 +72,7 @@
 
     - name: Create a data container
       community.docker.docker_container:
-        name: hello-world
+        name: hello-world_Ulli
         image: hello-world
 
     

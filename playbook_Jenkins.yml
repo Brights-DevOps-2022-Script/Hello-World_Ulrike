@@ -1,4 +1,4 @@
-- name: playbook_Jenkins.yml
+- name: Jenkins Installation
   hosts: vm
   become: true
   tasks: 

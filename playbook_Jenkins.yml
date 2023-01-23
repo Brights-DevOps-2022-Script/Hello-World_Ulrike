@@ -4,7 +4,7 @@
   tasks: 
     - name: install java
       ansible.builtin.shell: 
-        name: openjdk-11-jre
+        name: openjdk-17-jre
         state: present
       
     - name: install jenkins gpg key

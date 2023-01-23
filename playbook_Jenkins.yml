@@ -9,7 +9,6 @@
     - name: install gpg key
       ansible.buildin.apt_key:
         url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
-        keyring: /etc/apt/keyrings/jenkins.gpg
 
     - name: Add specified repository into sources list
       ansible.builtin.apt_repository:

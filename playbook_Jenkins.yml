@@ -15,7 +15,7 @@
     - name: apt-get update
       ansible.builtin.shell: sudo apt-get update
     
-    - name: Java install 
+    - name: sudo apt-get install fontconfig openjdk-11-jre
     - ansible.builtin.shell: 
         name: sudo apt-get install fontconfig openjdk-11-jre
 

@@ -23,8 +23,8 @@
     - name: Install the package "Jenkins"
       ansible.builtin.apt:
         name: 
-          - sudo apt-get install jenkins
-        state: latest
+          - jenkins
+        state: present
 
     - name: check if jenkins components are installed
       ansible.builtin.shell: dpkg -l 'jenkins' 

@@ -3,7 +3,7 @@
   become: true
   tasks: 
     - name: add key to your system
-      ansible.buildin.shell:
+      ansible.buildin.apt_key:
       url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
       keyring: /etc/apt/keyrings/jenkins.gpg
 

@@ -1,0 +1,29 @@
+- name: installing jenkings on vm
+  hosts: vm
+  become: true
+  tasks: 
+    - name: Add specified repository into sources list
+      ansible.builtin.apt_repository:
+        repo: deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+              https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+              /etc/apt/sources.list.d/jenkins.list > /dev/null
+    
+    - name: apt-get update
+      ansible.builtin.shell: sudo apt-get update
+    
+    - name: Java install 
+    - ansible.builtin.shell: 
+        name: sudo apt-get install fontconfig openjdk-11-jre
+
+
+    - name: Install the package "Jenkins"
+      ansible.builtin.apt:
+        name: 
+          - sudo apt-get install jenkins
+        state: latest
+
+    - name: check if jenkins components are installed
+      ansible.builtin.shell: dpkg -l 'jenkins' 
+      register: Jenkins
+      failed_when: Jenkins.stderr != ''
+      changed_when: false

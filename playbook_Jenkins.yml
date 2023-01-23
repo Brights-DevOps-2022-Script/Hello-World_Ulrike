@@ -3,14 +3,14 @@
   become: true
   tasks: 
     - name: add key to your system
-      ansible.buildin.shell: curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
-                            /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+      ansible.buildin.shell:
+        url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+  	    state: present
+        keyring: /etc/apt/keyrings/jenkins.gpg
 
     - name: Add specified repository into sources list
       ansible.builtin.apt_repository:
-        repo: deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
-              https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
-              /etc/apt/sources.list.d/jenkins.list > /dev/null
+        repo: deb https://pkg.jenkins.io/debian-stable focal state
     
     - name: apt-get update
       ansible.builtin.shell: sudo apt-get update

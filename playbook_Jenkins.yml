@@ -5,16 +5,18 @@
     - name: install java
       ansible.builtin.shell: 
         name: openjdk-11-jre
+        state: present
       
     - name: install jenkins gpg key
       ansible.builtin.apt_key:
         url: https://pkg.jenkins.io/debian/jenkins.io.key
         state: present
-        
+
     - name: Add specified repository into sources list
       ansible.builtin.apt_repository:
         repo: deb https://pkg.jenkins.io/debian-stable binary
-    
+        state: present
+
     - name: apt-get update
       ansible.builtin.shell: sudo apt-get update
 

@@ -2,6 +2,10 @@
   hosts: vm
   become: true
   tasks: 
+    - name: add key to your system
+      ansible.buildin.shell: curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
+                            /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+
     - name: Add specified repository into sources list
       ansible.builtin.apt_repository:
         repo: deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \

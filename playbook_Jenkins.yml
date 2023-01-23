@@ -6,7 +6,7 @@
       ansible.builtin.shell: 
         name: openjdk-11-jre
       
-    -name: install gpg key
+    - name: install gpg key
       ansible.buildin.apt_key:
       url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
       keyring: /etc/apt/keyrings/jenkins.gpg

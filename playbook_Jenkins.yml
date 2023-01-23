@@ -4,13 +4,12 @@
   tasks: 
     - name: add key to your system
       ansible.buildin.shell:
-        url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
-  	    state: present
-        keyring: /etc/apt/keyrings/jenkins.gpg
+      url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+      keyring: /etc/apt/keyrings/jenkins.gpg
 
     - name: Add specified repository into sources list
       ansible.builtin.apt_repository:
-        repo: deb https://pkg.jenkins.io/debian-stable focal state
+      repo: deb https://pkg.jenkins.io/debian-stable focal state
     
     - name: apt-get update
       ansible.builtin.shell: sudo apt-get update
@@ -18,7 +17,6 @@
     - name: sudo apt-get install fontconfig openjdk-11-jre
     - ansible.builtin.shell: 
         name: sudo apt-get install fontconfig openjdk-11-jre
-
 
     - name: Install the package "Jenkins"
       ansible.builtin.apt:

@@ -1,4 +1,4 @@
-- name: installing jenkings on vm
+- name: playbook_Jenkins.yml
   hosts: vm
   become: true
   tasks: 

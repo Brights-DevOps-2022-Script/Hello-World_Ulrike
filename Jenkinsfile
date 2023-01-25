@@ -2,6 +2,7 @@ pipeline {
     agent {
         docker {
                 image 'cytopia/ansible'
+                args '-u root:root'
             }
         }
         environment {
@@ -14,8 +15,8 @@ pipeline {
                 sh 'apk update'
                 sh 'apk add --update --no-cache openssh sshpass'
                 sh 'ansible --version'
-                sh "ansible-playbook --version"
-                sh "ansible-playbook -i hostfile playbook_Jenkins.yml -e ansible_ssh_pass=$ANSIBLE_KEY_PSW"
+                // sh "ansible-playbook --version"
+                // sh "ansible-playbook -i hostfile playbook_Jenkins.yml -e ansible_ssh_pass=$ANSIBLE_KEY_PSW"
    
             }
         }

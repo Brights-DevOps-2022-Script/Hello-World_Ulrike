@@ -31,3 +31,27 @@
       register: Jenkins
       failed_when: Jenkins.stderr != ''
       changed_when: false
+
+    - name: Add the user "jenkins" to docker group 
+      ansible.builtin.user:
+        name: jenkins
+        comment: user of jenkins
+        uid: 1001
+        group: docker
+
+    - name: check if user is added to docker group
+      ansible.builtin.shell: id -nG snowman | grep -o docker
+      register: dockeruser
+      failed_when: dockeruser.stderr != ''
+      changed_when: false
+
+    - name: run Hello-world container
+      community.docker.docker_container:
+        name: hello-world_Ulli
+        image: hello-world
+
+    - name: check if hello-world container is running
+      ansible.builtin.shell: docker ps | grep hello-world
+      register: hello
+      failed_when: hello.stderr != ''
+      changed_when: false

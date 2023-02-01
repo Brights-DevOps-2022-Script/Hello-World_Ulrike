@@ -2,11 +2,13 @@ VM vertraut werden
 
 Wir finden die VM über folgenden link, brauchen da aber nicht raufkucken: https://portal.azure.com/#@brightstraining.com/resource/subscriptions/afc373bb-3a48-411a-a448-2cd0314f6fc6/resourceGroups/DevOps2022_Jenkins_Machines/overviewsiehe 
 
-vm "frosty" details:
+Neue, gemeinsame VM:
+username: jenkins
+20.113.26.169:8080
+pwd: hieristeinpasswort1234
 
-snowman
-20.218.111.156
-eB1aA##nT9nsM1
+
+
 
 1. ssh login in der command line in vs code: 
 "ssh username@IP" und dann fragt er nach dem passwort
